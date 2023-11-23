@@ -1,0 +1,43 @@
+#box{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    font-size: 20px;
+    font-family: 'Mountains of Christmas', serif;
+    height: 300px;
+    width: 300px;
+    background-color: blue;
+    border-radius: 20px;
+    border: solid black 5px;
+    animation: myanima 3s infinite alternate;
+    transition: font-size 4s 1s;
+}
+#box :hover{
+    font-size: 40px;
+}
+@keyframes myanima {
+    0%{
+        transform: translateY(0px);
+        background-color: #abe;
+    }
+    25%{
+        background-color: aqua;
+        transform: translateX(500px) translateY(400px);
+    }
+    50%{
+        transform: translateX(200px) translateY(100px);
+        background-color: #24A;
+        color: #fff; 
+    }
+    75%{
+        transform: translateX(100px) translateY(100px);
+        background-color: blueviolet;
+    }
+    100%{
+        transform: translateX(300px) translateY(300px);
+        background-color: #57d;
+    }
+    
+}
+
