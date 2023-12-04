@@ -13,7 +13,7 @@ export default class infoCard{
 
     async inToIt(){
         const object = await getAPI.getSpanData(`https://swapi.dev/api/people/?search=${this.name}`)
-        this.displayTemplate(object)
+        this.displayTemplate(object.results)
     }
 
     displayTemplate(list){

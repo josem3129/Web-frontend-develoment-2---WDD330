@@ -2,7 +2,7 @@ export default class templates {
 
     templatePeople(object){
         return `
-        <a href="../info pages/index.html?search=${object.name}">
+        <a href="/StarWarsAPI/info pages/index.html?search=${object.name}">
         <div class="card">
         <h2 class="indent">${object.name}</h2>
         <p class="card-footer"> ${object.birth_year}</p>

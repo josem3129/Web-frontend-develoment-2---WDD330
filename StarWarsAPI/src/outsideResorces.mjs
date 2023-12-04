@@ -19,7 +19,8 @@ export default class gerExternalAPI{
         const response = await fetch(url);
         try {
             const data = await response.json()
-            return data.results
+            // console.log(data)
+            return data
         } catch (error) {
             
         }
