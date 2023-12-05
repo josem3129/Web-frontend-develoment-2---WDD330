@@ -1,39 +1,7 @@
-import gerExternalAPI from "./outsideResorces.mjs"
-const getData = new gerExternalAPI;
-
-async function toImportUrl(url){
-
-  if (url.length == 0) {
-    return "empty"
-  }
-  else if(typeof url ==="string") {
-    const result = await getData.getSpanData(url);
-    const name = result.name;
-    console.log(name);
-    return name;
-  } else {
-    let nameList = [];
-    url.forEach(async (element) => {
-      let arrayObject = await getData.getSpanData(element);
-      let name = arrayObject.name;
-      if (name === undefined) {
-        name = arrayObject.title;
-        console.log(`title: ${name}`);
-        return name
-      }
-      console.log(`name: ${name}`);
-      return name
-    });
-  }
-  // console.log(url)
-    
-  
-}
 
 export default class infoTemplates {
 
     infoTemplatePeople(object){
-      console.log(toImportUrl(object.homeworld))
         return `
         <div class="card">
         <h2 class="indent">${object.name}</h2>
@@ -47,11 +15,11 @@ export default class infoTemplates {
         <p class="card-footer"> ${object.skin_color}</p>
         </div>
         <div class = "secondPart">
-        <p class="homeWorld">homeworld: ${toImportUrl(object.homeworld).PromiseResult}</p>
-        <p class="film"> films: ${toImportUrl(object.films).PromiseResult}</p>
-        <p class="species">species: ${toImportUrl(object.species).PromiseResult}</p>
-        <p class="starship ">Star Sships: ${toImportUrl(object.starships).PromiseResult}</p>
-        <p class="vehicles">Vehicles: ${toImportUrl(object.vehicles).PromiseResult}</p>
+        <p id="homeworld">homeworld: ${object.homeworld}</p>
+        <p class="card-footer" ${object.films}</p>
+        <p class="card-footer">species: ${object.species}</p>
+        <p class="card-footer">Star Sships: ${object.starships}</p>
+        <p class="card-footer">Vehicles: ${object.vehicles}</p>
         </div>`
 
     }
@@ -63,6 +31,13 @@ export default class infoTemplates {
         <p class="card-footer"> ${object.director}</p>
         <p class="card-footer"> ${object.producer}</p>
         <p class="card-footer"> ${object.release_date}</p>
+        </div>
+        <div class = "secondPart">
+        <p class="card-footer">species: ${object.species}</p>
+        <p class="card-footer">Star Sships: ${object.starships}</p>
+        <p id="homeworld">homeworld: ${object.homeworld}</p>
+        <p class="card-footer">Vehicles: ${object.vehicles}</p>
+        <p class="card-footer" ${object.films}</p>
         </div>`
     }
     infoTemplateShipVehicle(object){
