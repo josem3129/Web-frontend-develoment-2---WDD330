@@ -31,12 +31,12 @@ export function templateMaker(template, element, list, position = "afterbegin", 
     element.insertAdjacentHTML(position, objectStrings.join(""))
 
 }
-export function toLocalStorage(object){
-    localStorage.setItem("to-object",JSON.stringify(object))
+export function toLocalStorage(category){
+    localStorage.setItem("category",category)
 }
-export function getLocalStorage(){
+export function getLocalStorage(category){
     if (localStorage.length !== 0) {
-        return localStorage.getItem("to-object")
+        return localStorage.getItem(category)
     }else{
         return {name: "error"}
     }

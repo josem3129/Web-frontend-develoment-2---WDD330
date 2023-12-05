@@ -34,10 +34,11 @@ export default class infoTemplates {
         </div>
         <div class = "secondPart">
         <p class="card-footer">species: ${object.species}</p>
-        <p class="card-footer">Star Sships: ${object.starships}</p>
-        <p id="homeworld">homeworld: ${object.homeworld}</p>
+        <p class="card-footer">Star Ships: ${object.starships}</p>
         <p class="card-footer">Vehicles: ${object.vehicles}</p>
-        <p class="card-footer" ${object.films}</p>
+        <p id="homeworld">homeworld: ${object.character}</p>
+        <p class="card-footer" ${object.planets}</p>
+        <p class="card-footer" ${object.planets}</p>
         </div>`
     }
     infoTemplateShipVehicle(object){
@@ -51,7 +52,13 @@ export default class infoTemplates {
         <p class="card-footer"> ${object.crew}</p>
         <p class="card-footer"> ${object.passengers}</p>
         <p class="card-footer"> ${object.max_atmosphering_speed}</p>
-      </div>`
+      </div>
+      <div class = "secondPart">
+        <p class="card-footer">species: ${object.cargo_capacity}</p>
+        <p class="card-footer">Star Ships: ${object.consumables}</p>
+        <p class="card-footer">Vehicles: ${object.films}</p>
+        <p id="homeworld">homeworld: ${object.pilots}</p>
+        </div>`
     }
     infoTemplateSpecies(object){
         return `
@@ -64,6 +71,12 @@ export default class infoTemplates {
         <p class="card-footer"> ${object.eye_color}</p>
         <p class="card-footer"> ${object.hair_color}</p>
         <p class="card-footer"> ${object.language}</p>
+      </div>
+      <div class = "secondPart">
+        <p class="card-footer">species: ${object.homeworld}</p>
+        <p class="card-footer">Star Sships: ${object.people}</p>
+        <p class="card-footer">Vehicles: ${object.films}</p>
+        <p id="homeworld">homeworld: ${object.character}</p>
       </div>`
     }
     infoTemplatePlanets(object){
@@ -77,6 +90,11 @@ export default class infoTemplates {
         <p class="card-footer"> ${object.population}</p>
         <p class="card-footer"> ${object.climate}</p>
         <p class="card-footer"> ${object.terrain}</p>
-      </div>`
+      </div>
+      <div class = "secondPart">
+        <p class="card-footer">species: ${object.surface_water}</p>
+        <p class="card-footer">Star Ships: ${object.residents}</p>
+        <p class="card-footer">Vehicles: ${object.films}</p>
+        </div>`
     }
 }

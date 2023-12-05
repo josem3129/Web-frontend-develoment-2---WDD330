@@ -22,37 +22,31 @@ export default class gerExternalAPI{
         
     }
 
-    getSpanData(name){
+    getSpanData(name, category){
 
         var nameInfo = []; 
-        var category  = ["films", "people","starships","vehicles"]
 
-        function filter(category){
+        let API = JSON.parse(localStorage.getItem(category));
 
-            let API = JSON.parse(localStorage.getItem(category));
-            if (API === null) {
-               return alert("error no data found")
-            }
-            let display = API.filter((object)=>{
-                let ObjectName = object.name;
-
-                if (ObjectName === undefined) {
-                    ObjectName = object.title;
-                } 
-
-                if(ObjectName.toLowerCase() == name.toLowerCase()){
-                    nameInfo.push(object);
-                }else{
-                  return {Name: `Not found`}
-                }
-               
-            })
+        if (API === null) {
+            return alert("error no data found")
         }
-        
-        category.forEach((e)=>{
-            filter(e);
-        })
 
+        API.filter((object)=>{
+            let ObjectName = object.name;
+
+            if (ObjectName === undefined) {
+                ObjectName = object.title;
+            } 
+
+            if(ObjectName.toLowerCase() == name.toLowerCase()){
+                nameInfo.push(object);
+            }else{
+                return {Name: `Not found`}
+            }
+            
+        })
+        
         return nameInfo
     }  
 
