@@ -33,4 +33,6 @@ export default class infoCard{
             console.error("not found");
         }
     }
+
+    
 }

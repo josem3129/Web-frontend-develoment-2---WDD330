@@ -4,6 +4,7 @@ body{
   width: 100%;
   margin: 0%;
   background-color: #2f2f2f;
+  color: white;
 }
 main{
     font-family: 'Petrona', serif;
@@ -113,7 +114,6 @@ footer{
 }
 .categories li a{
     text-decoration: none;
-    color: black;
     font-size: 20px;
     /* text-align: center; */
 }
@@ -184,11 +184,16 @@ p:not(:last-child) {
   border-radius: 20px;
   background-color: rgba(255, 255, 255, 0.45);
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
-  margin: 30px 10px 10px 10px;
+  margin: 30px auto 30px auto;
   backdrop-filter: blur(15px);
 }
 
 .card-footer {
   font-size: 0.65em;
-  color: #446;
+}
+.mainDiv{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  font-size: 25px;
 }

@@ -41,3 +41,4 @@ export function getLocalStorage(category){
         return {name: "error"}
     }
 }
+

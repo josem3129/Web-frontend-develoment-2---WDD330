@@ -3,4 +3,7 @@ import { loadHeaderFooter } from "./utils.mjs";
 
 loadHeaderFooter();
 const getData = new gerExternalAPI
-console.log(getData.getData(`people`))
+const category = ["people", "films", "vehicles", "species", "starships", "planets"]
+category.forEach((e)=>{
+    getData.getData(e)
+})

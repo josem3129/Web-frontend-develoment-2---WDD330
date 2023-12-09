@@ -25,7 +25,7 @@ export default class gerExternalAPI{
     getSpanData(name, category){
 
         var nameInfo = []; 
-
+        
         let API = JSON.parse(localStorage.getItem(category));
 
         if (API === null) {
@@ -50,27 +50,37 @@ export default class gerExternalAPI{
         return nameInfo
     }  
 
-    searchData(name){
-        
-
+    DataNameFinder(name){
+        let nameFound = "";
+        let nameList = [];
+        const category = ["people", "films", "vehicles", "species", "starships", "planets"]
         function filter(category){
 
             let API = JSON.parse(localStorage.getItem(category));
             if (API === null) {
-               return alert("error no data found")
+               console.log(`error unable to find info`)
             }
-            let display = API.filter((object)=>{
-                let ObjectName = object.name;
+            API.filter((object)=>{
+                let objectUrl = object.url
 
-                if (ObjectName === undefined) {
-                    ObjectName = object.title;
-                } 
-
-                if(ObjectName.toLowerCase().includes(name.toLowerCase())){
-                    return object;
-                }else{
-                  return {Name: `Not found`}
-                }
+                if (typeof name == "string") {
+                    if(objectUrl == name){
+                        nameFound = object.name;
+                        if (nameFound === undefined) {
+                            nameFound = object.title;
+                        }
+                    }
+                } else {
+                    name.forEach(element => {
+                        if(objectUrl == element){
+                            const foundName = object.name
+                            if (foundName === undefined) {
+                            nameList.push(object.title);
+                            }
+                            nameList.push(object.name);
+                        }
+                    });
+                };
                
             })
         }
@@ -78,5 +88,7 @@ export default class gerExternalAPI{
         category.forEach((e)=>{
             filter(e);
         })
+
+        return nameFound;
     }  
 }
